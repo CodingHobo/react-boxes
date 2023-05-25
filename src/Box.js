@@ -1,12 +1,29 @@
 import React from "react";
 
-function Box ({height, width, backgroundColor}) {
+function Box ({id, height, width, backgroundColor, deleteBox}) {
   const styles = {
     height: height,
     width: width,
     backgroundColor: backgroundColor
   }
-  return (<div style={styles}></div>);
+
+  function handleRemove() {
+    deleteBox(id);
+  }
+
+  return (
+    <div>
+      <div position="relative" style={styles}></div>
+      <button
+        style={{
+          position: "relative",
+          bottom: height,
+          left: width,
+          }}
+        onClick={handleRemove}>X
+      </button>
+    </div>
+  );
 }
 
 export default Box;
